@@ -85,15 +85,41 @@ int32_t app_synctasks_init (void)
 static void function1(void *pvParameters)
 {
   ( void ) pvParameters;
+  static const uint8_t message[] = "Hello\r";
 
-  for(;;)
-  {
-    
-     HAL_GPIO_TogglePin(HAL_GPIOA, HAL_GPIO_PIN_5);
+    hal_uart_handle_t *uart;
+     hal_status_t status;
 
-     vTaskDelay(pdMS_TO_TICKS(20));
-    /* Infinite loop executing Task1 functionality. */
-  }
+    (void)pvParameters;
+
+    uart = mx_usart2_uart_gethandle();
+
+    for (;;)
+    {
+        /* Toggle onboard LED PA5 */
+        HAL_GPIO_TogglePin(HAL_GPIOA, HAL_GPIO_PIN_5);
+
+        status = HAL_UART_Transmit_IT(uart, message, sizeof(message) - 1U);
+        
+        if (status == HAL_OK)
+        {
+            /* Transmission started successfully */
+        }
+        else if (status == HAL_BUSY)
+        {
+            /* Previous transmission is still active */
+        }
+        else
+        {
+            /* UART error */
+        }
+
+        
+         /* Infinite loop executing Task1 functionality. */
+
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+ 
 }
 
 /**

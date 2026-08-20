@@ -1,0 +1,17 @@
+C:\iar\ewarm-9.70.4\arm\bin\armproc.dll
+
+ C:\iar\ewarm-9.70.4\arm\bin\armstlink.dll
+
+ C:\Users\Admin\Desktop\BonV\STM32C5_NGA\stm32c5_freertos\NG_Actuator_ewarm\project\debug\Exe\NG_Actuator.out
+
+ --plugin=C:\iar\ewarm-9.70.4\arm\bin\armLibSupportUniversal.dll
+
+ --device_macro=C:\iar\ewarm-9.70.4\arm/config/debugger/ST/STM32C5xx_DBG.dmac
+
+ --device_macro=C:\iar\ewarm-9.70.4\arm/config/debugger/ST/STM32C5xx_TRACE.dmac
+
+ --flash_loader=C:\iar\ewarm-9.70.4\arm/config/flashloader/ST/FlashSTM32C562xE.board
+
+ 
+
+

@@ -20,7 +20,7 @@ volatile tmc6460_status_t g_tmc6460_status =
 
 void APP_TMC_Task(void)
 {
-//    uint32_t chipId;
+    uint32_t chipId;
 
     /*
      * Give TMC some startup time.
@@ -30,9 +30,9 @@ void APP_TMC_Task(void)
 
     for (;;)
     {
-      TMC_SendData();
+//      TMC_SendData();
       
-/*        chipId = 0U;
+        chipId = 0U;
 
         g_tmc6460_status =
             TMC6460_ReadChipID(&chipId);
@@ -44,7 +44,7 @@ void APP_TMC_Task(void)
 
 
             if (chipId == TMC6460_EXPECTED_CHIP_ID)
-            {*/
+            {
                 /*
                  * Communication OK.
                  *
@@ -52,7 +52,7 @@ void APP_TMC_Task(void)
                  *
                  * 0x36343630
                  */
-            /*}
+            }
             else
             {
                 g_tmc6460_status =
@@ -63,11 +63,10 @@ void APP_TMC_Task(void)
         {
             g_tmc6460_chip_id = 0U;
         }
-*/
 
         /*
          * Read once per second during bring-up.
          */
-        vTaskDelay(pdMS_TO_TICKS(1000U));
+        vTaskDelay(pdMS_TO_TICKS(20));
     }
 }

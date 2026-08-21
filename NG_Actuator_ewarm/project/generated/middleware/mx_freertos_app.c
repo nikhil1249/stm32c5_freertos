@@ -137,7 +137,6 @@ static void function2(void *pvParameters)
   {
     /* Infinite loop executing Task2 functionality. */
     APP_TMC_Task();
-    vTaskDelay(pdMS_TO_TICKS(1000U));
   }
 }
 

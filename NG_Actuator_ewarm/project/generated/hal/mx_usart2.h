@@ -30,12 +30,12 @@ extern "C" {
 /* Exported constants --------------------------------------------------------*/
 
 /** Primary aliases for USART2_RX pin */
-#define PA3_PORT                              HAL_GPIOA
-#define PA3_PIN                               HAL_GPIO_PIN_3
+#define PB14_PORT                              HAL_GPIOB
+#define PB14_PIN                               HAL_GPIO_PIN_14
 
 /** Primary aliases for USART2_TX pin */
-#define PA2_PORT                              HAL_GPIOA
-#define PA2_PIN                               HAL_GPIO_PIN_2
+#define PB15_PORT                              HAL_GPIOB
+#define PB15_PIN                               HAL_GPIO_PIN_15
 
 /* Exported macros -----------------------------------------------------------*/
 /* Exported variables --------------------------------------------------------*/
@@ -49,24 +49,24 @@ extern "C" {
   * This function configures the hardware resources used in this example
   * @retval pointer to handle or NULL in case of failure
   */
-hal_uart_handle_t *mx_usart2_uart_init(void);
+hal_uart_handle_t *mx_usart1_uart_init(void);
 
 /**
   * @brief  De-initialize mx_usart2_uart instance and return it.
   * @retval None
   */
-void mx_usart2_uart_deinit(void);
+void mx_usart1_uart_deinit(void);
 
 /**
   * @brief  Get the mx_usart2_uart object.
   * @retval Pointer on the mx_usart2_uartHandle
   */
-hal_uart_handle_t *mx_usart2_uart_gethandle(void);
+hal_uart_handle_t *mx_usart1_uart_gethandle(void);
 
 /******************************************************************************/
 /*                          USART2 global interrupt                           */
 /******************************************************************************/
-void USART2_IRQHandler(void);
+void USART1_IRQHandler(void);
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

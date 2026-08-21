@@ -25,24 +25,24 @@
 /* Private functions prototype------------------------------------------------*/
 /* Exported variables by reference--------------------------------------------*/
 /* Handle for UART */
-static hal_uart_handle_t hUSART2;
+static hal_uart_handle_t hUSART1;
 
 /* Exported function definition ----------------------------------------------*/
 /******************************************************************************/
 /* Exported functions for UART in HAL layer */
 /******************************************************************************/
 
-hal_uart_handle_t *mx_usart2_uart_init(void)
+hal_uart_handle_t *mx_usart1_uart_init(void)
 {
   hal_uart_config_t uart_config;
 
   /* Basic configuration */
-  if (HAL_UART_Init(&hUSART2, HAL_UART2) != HAL_OK)
+  if (HAL_UART_Init(&hUSART1, HAL_UART1) != HAL_OK)
   {
     return NULL;
   }
 
-  if (HAL_RCC_USART2_SetKernelClkSource(HAL_RCC_USART2_CLK_SRC_PCLK1) != HAL_OK)
+  if (HAL_RCC_USART1_SetKernelClkSource(HAL_RCC_USART1_CLK_SRC_PCLK2) != HAL_OK)
   {
     return NULL;
   }
@@ -57,7 +57,7 @@ hal_uart_handle_t *mx_usart2_uart_init(void)
   uart_config.oversampling = HAL_UART_OVERSAMPLING_16;
   uart_config.one_bit_sampling = HAL_UART_ONE_BIT_SAMPLE_DISABLE;
 
-  if (HAL_UART_SetConfig(&hUSART2, &uart_config) != HAL_OK)
+  if (HAL_UART_SetConfig(&hUSART1, &uart_config) != HAL_OK)
   {
     return NULL;
   }
@@ -70,45 +70,46 @@ hal_uart_handle_t *mx_usart2_uart_init(void)
   /**
     [GPIO Pin] ------> [Signal Name] ------> [Labels]
 
-       PA3     ------>   USART2_RX   ------>  PA3
-       PA2     ------>   USART2_TX   ------>  PA2
+       PB14     ------>   USART1_RX   ------>  PB14
+       PB15     ------>   USART1_TX   ------>  PB15
     **/
   gpio_config.mode        = HAL_GPIO_MODE_ALTERNATE;
   gpio_config.output_type = HAL_GPIO_OUTPUT_PUSHPULL;
   gpio_config.pull        = HAL_GPIO_PULL_NO;
   gpio_config.speed       = HAL_GPIO_SPEED_FREQ_LOW;
-  gpio_config.alternate   = HAL_GPIO_AF_7;
-  HAL_GPIO_Init(HAL_GPIOA, PA3_PIN | PA2_PIN, &gpio_config);
+  gpio_config.alternate   = HAL_GPIO_AF_4;
+  HAL_GPIO_Init(HAL_GPIOB, PB14_PIN | PB15_PIN, &gpio_config);
 
   /* Enable interrupt */
-  HAL_CORTEX_NVIC_SetPriority(USART2_IRQn, HAL_CORTEX_NVIC_PREEMP_PRIORITY_0, HAL_CORTEX_NVIC_SUB_PRIORITY_0);
-  HAL_CORTEX_NVIC_EnableIRQ(USART2_IRQn);
+  HAL_CORTEX_NVIC_SetPriority(USART1_IRQn, HAL_CORTEX_NVIC_PREEMP_PRIORITY_0, HAL_CORTEX_NVIC_SUB_PRIORITY_0);
+  HAL_CORTEX_NVIC_EnableIRQ(USART1_IRQn);
 
-  return &hUSART2;
+  return &hUSART1;
 }
 
-void mx_usart2_uart_deinit(void)
+void mx_usart1_uart_deinit(void)
 {
   /* Disable interrupt */
-  HAL_CORTEX_NVIC_DisableIRQ(USART2_IRQn);
-(void)HAL_UART_DeInit(&hUSART2);
+  HAL_CORTEX_NVIC_DisableIRQ(USART1_IRQn);
+(void)HAL_UART_DeInit(&hUSART1);
 
-  HAL_RCC_USART2_Reset();
+  HAL_RCC_USART1_Reset();
 
-  HAL_RCC_USART2_DisableClock();
+  HAL_RCC_USART1_DisableClock();
 
   /* De-initialize all GPIOA pins associated with USART2 */
-  HAL_GPIO_DeInit(HAL_GPIOA, PA2_PIN | PA3_PIN);
+  HAL_GPIO_DeInit(HAL_GPIOB, PB14_PIN | PB15_PIN);
 }
-hal_uart_handle_t *mx_usart2_uart_gethandle(void)
+
+hal_uart_handle_t *mx_usart1_uart_gethandle(void)
 {
-  return &hUSART2;
+  return &hUSART1;
 }
 
 /******************************************************************************/
 /*                          USART2 global interrupt                           */
 /******************************************************************************/
-void USART2_IRQHandler(void)
+void USART1_IRQHandler(void)
 {
-  HAL_UART_IRQHandler(&hUSART2);
+  HAL_UART_IRQHandler(&hUSART1);
 }

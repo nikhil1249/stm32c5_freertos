@@ -103,7 +103,7 @@ system_status_t mx_system_init(void)
     */
 
   /** USART2 */
-  if (mx_usart2_uart_init() == NULL)
+  if (mx_usart1_uart_init() == NULL)
   {
     return SYSTEM_PERIPHERAL_ERROR;
   }

@@ -16,12 +16,12 @@
                 <debug>1</debug>
                 <option>
                     <name>GEndianModeBE</name>
-                    <state>0</state>
+                    <state>1</state>
                 </option>
                 <option>
                     <name>GBECoreSlave</name>
                     <version>35</version>
-                    <state>38</state>
+                    <state>61</state>
                 </option>
                 <option>
                     <name>CoreVariant</name>
@@ -81,7 +81,7 @@
                 </option>
                 <option>
                     <name>RTDescription</name>
-                    <state></state>
+                    <state>A complete configuration of the C/C++14 runtime library. Full locale interface, C locale, file descriptor support, multibytes in printf and scanf, and hex floats in strtod.</state>
                 </option>
                 <option>
                     <name>RTConfigPath2</name>
@@ -189,7 +189,7 @@
                 <option>
                     <name>TrustZoneModes</name>
                     <version>0</version>
-                    <state>1</state>
+                    <state>0</state>
                 </option>
                 <option>
                     <name>OGAarch64Abi</name>
@@ -349,7 +349,7 @@
                 </option>
                 <option>
                     <name>PreInclude</name>
-                    <state>$PROJ_DIR$/user_modifiable/_debug_IAR_NUCLEO-C562RE/Pre_Include_Global.h</state>
+                    <state>$PROJ_DIR$\user_modifiable\_debug_IAR_NUCLEO-C562RE\Pre_Include_Global.h</state>
                 </option>
                 <option>
                     <name>CCIncludePath2</name>
@@ -706,7 +706,7 @@
                 </option>
                 <option>
                     <name>OOCOutputFile</name>
-                    <state>$PROJ_FNAME$.hex</state>
+                    <state>NG_Actuator.hex</state>
                 </option>
                 <option>
                     <name>OOCCommandLineProducer</name>
@@ -1553,6 +1553,24 @@
                 </file>
             </group>
         </group>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\app_tmc.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\app_tmc.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\tmc6460.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\tmc6460.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\uart_iface.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\uart_iface.h</name>
+        </file>
     </group>
     <group>
         <name>UserCode</name>

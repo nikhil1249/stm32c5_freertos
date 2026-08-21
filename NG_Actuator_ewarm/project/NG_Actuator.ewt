@@ -2205,6 +2205,24 @@
                 </file>
             </group>
         </group>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\app_tmc.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\app_tmc.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\tmc6460.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\tmc6460.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\uart_iface.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\user_modifiable\uart_iface.h</name>
+        </file>
     </group>
     <group>
         <name>UserCode</name>

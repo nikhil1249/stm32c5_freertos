@@ -15,7 +15,7 @@
   ******************************************************************************
   */
 /* Includes ------------------------------------------------------------------*/
-#include "main.h"
+#include "user_modifiable/uart_iface.h"
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
@@ -34,13 +34,15 @@ int main(void)
     * You can use STM32CubeMX to generate and call this code or not in this project.
     * It also contains the HAL initialization and the initial clock configuration.
     */
-  
+
   if (mx_system_init() != SYSTEM_OK)
   {
     return (-1);
   }
 
   gpio_default_init();
+  
+  UART_IF_Init();
   
   app_synctasks_init();
   

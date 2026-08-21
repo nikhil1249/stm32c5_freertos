@@ -16,6 +16,8 @@
   */
 /* Includes ------------------------------------------------------------------*/
 #include "mx_freertos_app.h"
+#include "user_modifiable/tmc6460.h"
+#include "user_modifiable/app_tmc.h"
 
 /* Private define ------------------------------------------------------------*/
 #define Task1_stack_size  128U
@@ -85,36 +87,36 @@ int32_t app_synctasks_init (void)
 static void function1(void *pvParameters)
 {
   ( void ) pvParameters;
-  static const uint8_t message[] = "Hello\r";
+ //  static const uint8_t message[] = "Hello\r";
 
-    hal_uart_handle_t *uart;
-     hal_status_t status;
+ //   hal_uart_handle_t *uart;
+ //    hal_status_t status;
 
     (void)pvParameters;
 
-    uart = mx_usart2_uart_gethandle();
+//    uart = mx_usart2_uart_gethandle();
 
     for (;;)
     {
         /* Toggle onboard LED PA5 */
         HAL_GPIO_TogglePin(HAL_GPIOA, HAL_GPIO_PIN_5);
 
-        status = HAL_UART_Transmit_IT(uart, message, sizeof(message) - 1U);
+/*        status = HAL_UART_Transmit_IT(uart, message, sizeof(message) - 1U);
         
         if (status == HAL_OK)
         {
-            /* Transmission started successfully */
+            // Transmission started successfully 
         }
         else if (status == HAL_BUSY)
         {
-            /* Previous transmission is still active */
+           //  Previous transmission is still active 
         }
         else
         {
-            /* UART error */
+           //  UART error 
         }
 
-        
+*/        
          /* Infinite loop executing Task1 functionality. */
 
         vTaskDelay(pdMS_TO_TICKS(100));
@@ -130,11 +132,12 @@ static void function1(void *pvParameters)
 static void function2(void *pvParameters)
 {
   ( void ) pvParameters;
-
+ 
   for(;;)
   {
     /* Infinite loop executing Task2 functionality. */
-    vTaskDelay(pdMS_TO_TICKS(100));
+    APP_TMC_Task();
+    vTaskDelay(pdMS_TO_TICKS(1000U));
   }
 }
 

@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <settings>
     <StLinkDriver>
-        <CpuHaltOnBreakpointSet>_ 0</CpuHaltOnBreakpointSet>
-        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
-        <CStepIntDis>_ 0</CStepIntDis>
         <stlinkResetStyle>0</stlinkResetStyle>
         <stlinkResetStrategy>2</stlinkResetStrategy>
         <stlinkserialNo>002500303335510835383531</stlinkserialNo>
         <stlinkfoundProbes />
+        <CpuHaltOnBreakpointSet>_ 0</CpuHaltOnBreakpointSet>
+        <LeaveTargetRunning>_ 0</LeaveTargetRunning>
+        <CStepIntDis>_ 0</CStepIntDis>
     </StLinkDriver>
     <PlDriver>
-        <MemConfigValue>C:\iar\ewarm-9.70.4\arm\config\debugger\ST\STM32C562RE.ddf</MemConfigValue>
         <FirstRun>0</FirstRun>
+        <MemConfigValue>C:\iar\ewarm-9.70.4\arm\config\debugger\ST\STM32C562RE.ddf</MemConfigValue>
     </PlDriver>
     <DebugChecksum>
         <Checksum>996513083</Checksum>
@@ -125,6 +125,11 @@
         <ShowTimeSum>1</ShowTimeSum>
         <SumSortOrder>0</SumSortOrder>
     </EventLog>
+    <Aliases>
+        <Count>0</Count>
+        <SuppressDialog>0</SuppressDialog>
+        <SuppressResolveSourcesForDebugTarget>1</SuppressResolveSourcesForDebugTarget>
+    </Aliases>
     <TermIOLog>
         <LoggingEnabled>_ 0</LoggingEnabled>
         <LogFile>_ ""</LogFile>
@@ -135,9 +140,4 @@
     <Breakpoints2>
         <Count>0</Count>
     </Breakpoints2>
-    <Aliases>
-        <Count>0</Count>
-        <SuppressDialog>0</SuppressDialog>
-        <SuppressResolveSourcesForDebugTarget>1</SuppressResolveSourcesForDebugTarget>
-    </Aliases>
 </settings>
